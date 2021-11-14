@@ -1,0 +1,55 @@
+body,
+html,
+* {
+    margin: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.timerBox {
+    width: 80%;
+    height: 100vh;
+    overflow: hidden;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.timer {
+    position: absolute;
+    text-align: center;
+}
+
+.timer input {
+    display: block;
+    border: none;
+    width: 3em;
+    text-align: center;
+    outline: none;
+    font-size: 3.5em;
+    font-weight: 600;
+}
+
+#toggleTimer {
+    position: absolute;
+    left: -1000%;
+}
+
+.icon {
+    position: relative;
+    display: block;
+    margin:0 auto;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-width: 15px 0 15px 30px;
+    border-color: transparent transparent transparent black;
+    border-style: solid;
+}
+
+#toggleTimer:checked ~ .icon {
+    border-width: 0px 10px;
+    border-color: transparent  black;
+}
