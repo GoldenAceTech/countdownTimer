@@ -2,7 +2,7 @@ let circle = document.querySelector('svg circle');
 let toggle = document.querySelector('.icon');
 let timer = document.querySelector('#time');
 
-let length = circle.getTotalLength();
+let length = circle.getTotalLength() + 1;
 circle.style.strokeDasharray = `${length}px`;
 
 let start = false;
@@ -36,7 +36,7 @@ timer.addEventListener('input', function () {
     if(start) {
         toggle.click()
     }
-});
+});  
 
 function clearAll() {
     start = false;
