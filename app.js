@@ -42,6 +42,7 @@ function clearAll() {
     clearInterval(intervalID);
     clearInterval(offsetIntervalID);
     clearTimeout(timeOutID);
+    if(offset < length/2) {circle.classList.remove('half','danger')}
 }
 
 function reset() {
@@ -71,6 +72,12 @@ let interval = () => {
 
 let offsetInterval = () => {
     offset += addOffset;
+    if(offset > length/2) {
+        circle.classList.add('half')
+    } else if(offset > 3/4*length) {
+        circle.classList.remove('half')
+        circle.classList.add('danger')
+    }
     circle.style.strokeDasharray = `${length}`;
     circle.style.strokeDashoffset = -offset;
     circle.style.transition = `stroke-dashoffset ${0.01*time}s linear`;

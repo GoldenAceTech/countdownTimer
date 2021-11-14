@@ -4,6 +4,7 @@ html,
     margin: 0;
     overflow-x: hidden;
     box-sizing: border-box;
+    padding: 0;
 }
 
 .timerBox {
@@ -15,7 +16,6 @@ html,
     justify-content: center;
     align-items: center;
     position: relative;
-    transform: scale(0.5);
 }
 
 .timer {
@@ -26,7 +26,7 @@ html,
 .timer input {
     display: block;
     border: none;
-    width: 3em;
+    width: 2.5em;
     text-align: center;
     outline: none;
     font-size: 3.5em;
@@ -65,4 +65,15 @@ input[type=number] {
 #toggleTimer:checked ~ .icon {
     border-width: 0px 10px;
     border-color: transparent  black;
+}
+svg {
+    transform: scale(0.8);
+}
+
+.timerBox svg circle.half {
+    stroke: #ffae00;
+}
+
+.timerBox svg circle.danger {
+    stroke: #ff3c00;
 }
