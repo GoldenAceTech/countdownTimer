@@ -23,7 +23,7 @@ toggle.addEventListener('click', () => {
       intervalID = setInterval(interval, 10);
       offsetIntervalID = setInterval(offsetInterval, parseFloat(time) * 1000 * 0.01);
     } else {
-      clearAll()
+        stopTimer()
     }
   });
   
@@ -31,13 +31,13 @@ timer.addEventListener('input', function () {
     time = timer.value
     timeChange = parseFloat(time).toFixed(2)
     reset()
-    this.focus()
     if(start) {
         toggle.click()
     }
+    this.focus()
 });  
 
-function clearAll() {
+function stopTimer() {
     start = false;
     clearInterval(intervalID);
     clearInterval(offsetIntervalID);
@@ -51,6 +51,7 @@ function reset() {
     offset = 0;
     timer.value = time;
     timeChange = time;
+    circle.classList.remove('half','danger')
 }
 
 
@@ -72,12 +73,20 @@ let interval = () => {
 
 let offsetInterval = () => {
     offset += addOffset;
-    if(offset > length/2) {
+    if(offset >= length/2) {
         circle.classList.add('half')
-    } else if(offset > 3/4*length) {
-        circle.classList.remove('half')
-        circle.classList.add('danger')
     }
+    if(offset > ((3/4)*length)) {
+        circle.classList.add('danger')
+        circle.classList.remove('half')
+    }
+
+    if(offset >= length) {
+        circle.classList.remove('half','danger')
+        stopTimer()
+        reset()
+    }
+
     circle.style.strokeDasharray = `${length}`;
     circle.style.strokeDashoffset = -offset;
     circle.style.transition = `stroke-dashoffset ${0.01*time}s linear`;
