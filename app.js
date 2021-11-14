@@ -3,7 +3,6 @@ let toggle = document.querySelector('.icon');
 let timer = document.querySelector('#time');
 
 let length = circle.getTotalLength() + 1;
-circle.style.strokeDasharray = `${length}px`;
 
 let start = false;
 let time = timer.value;
@@ -72,6 +71,7 @@ let interval = () => {
 
 let offsetInterval = () => {
     offset += addOffset;
+    circle.style.strokeDasharray = `${length}px`;
     circle.style.strokeDashoffset = -offset+'px';
     circle.style.transition = `stroke-dashoffset ${0.01*time}s linear`;
 };
