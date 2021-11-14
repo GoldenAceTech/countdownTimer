@@ -71,7 +71,7 @@ let interval = () => {
 
 let offsetInterval = () => {
     offset += addOffset;
-    circle.style.strokeDasharray = `${length}px`;
-    circle.style.strokeDashoffset = -offset+'px';
+    circle.style.strokeDasharray = `${length}`;
+    circle.style.strokeDashoffset = -offset;
     circle.style.transition = `stroke-dashoffset ${0.01*time}s linear`;
 };
