@@ -15,6 +15,7 @@ html,
     justify-content: center;
     align-items: center;
     position: relative;
+    transform: scale(0.5);
 }
 
 .timer {
